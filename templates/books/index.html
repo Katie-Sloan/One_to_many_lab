@@ -3,17 +3,15 @@
     
 {% for book in all_books %}
     <div>
-        <p>{{book.title}}</p>    
-    </div>    
-    <div>
+        <p>{{book.title}}</p> 
         <p>{{book.genre}}</p>
-    </div>
-    <div>
         <p>{{book.publisher}}</p>
+        <p>{{book.author.first_name}} {{book.author.last_name}}</p>
+        <form class="delete-form" action="/books/{{book.id}}/delete" method="POST">
+            <button class="trash-button"><i class="fa fa-trash-o fa-3x" style="color:red" aria-hidden="true"></i></button>
+        </form>
     </div>
-    <div>
-        <p>{{book.author.first_name}}{{book.author.last_name}}</p>
-    </div>
+
 {% endfor %}
 
 {% endblock content %}
